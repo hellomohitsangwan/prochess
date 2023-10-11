@@ -1,37 +1,31 @@
 import React, { useEffect, useState } from "react";
-import FormContainer from "../../components/FormContainer";
-import { Form, Button, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import dropdown from "../../assets/dropdown.svg";
 
 function SelectOnline() {
   const navigate = useNavigate();
-  const [gameType, setGameType] = useState("");
   const [isdisabled, setIsDisabled] = useState(true);
+  const [keyword, setKeyword] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (gameType) {
-      gameType === "offline"
-        ? navigate("/play/offline")
-        : navigate("/select/online");
-    }
+    keyword && navigate(`/play/${keyword}`)
   };
 
   useEffect(() => {
-    if (gameType === "") {
+    if (keyword === "") {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
     }
-  }, [gameType]);
+  }, [keyword]);
 
   return (
     <>
       <div className="container">
         <div className="info">
           <button className="info-button">
-            Select Color
+            Create New Game
             <img src={dropdown} alt="" />
           </button>
           <ul>
@@ -46,42 +40,29 @@ function SelectOnline() {
           </ul>
         </div>
 
-        <h2 style={{marginRight: "32px"}}>OR</h2>
-        <FormContainer>
-          <h1>Select Game Type</h1>
-          <Form onSubmit={submitHandler}>
-            <Form.Group>
-              <Form.Label as="legend">Select Game Type</Form.Label>
+        <h2 style={{ marginRight: "32px" }}>OR</h2>
 
-              <Col>
-                <Form.Check
-                  type="radio"
-                  label="Offline Game"
-                  id="gameMethodOffline"
-                  name="gameMethod"
-                  value="offline"
-                  onChange={(e) => setGameType(e.target.value)}
-                ></Form.Check>
-                <Form.Check
-                  type="radio"
-                  label="Online(With friend)"
-                  id="gameMethodOnline"
-                  name="gameMethod"
-                  value="online"
-                  onChange={(e) => setGameType(e.target.value)}
-                ></Form.Check>
-              </Col>
-            </Form.Group>
-            <Button
-              className="cont"
-              type="submit"
-              variant="primary"
-              disabled={isdisabled}
-            >
-              Continue
-            </Button>
-          </Form>
-        </FormContainer>
+        <form onSubmit={submitHandler}>
+          <div className="input-group">
+            <input
+              type="text"
+              id="search_field"
+              className="form-control"
+              placeholder="Enter Game ID ...."
+              onChange={(e) => setKeyword(e.target.value)}
+            />
+            <div className="input-group-append">
+              <button
+                id="search_btn"
+                className="btn"
+                onClick={submitHandler}
+                disabled={isdisabled}
+              >
+                Play
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </>
   );
