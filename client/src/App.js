@@ -1,14 +1,14 @@
 import "./App.css";
-import Homepage from "./screens/Homepage/Homepage";
+import Homepage from "./screens/Homepage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "./screens/RegisterScreen/Register";
-import Login from "./screens/Loginscreen/Login";
+import Register from "./screens/RegisterScreen";
+import Login from "./screens/Loginscreen";
 import Protected from "./utils/Protected";
+import GameScreen from "./screens/GameScreen/Index";
 
 function App() {
   return (
     <BrowserRouter>
-      
       <Routes>
         <Route path="/" element={<Homepage />} exact />
         <Route
@@ -26,6 +26,16 @@ function App() {
           element={
             <Protected>
               <Register />
+            </Protected>
+          }
+        />
+
+        <Route
+          exact
+          path="/game/local"
+          element={
+            <Protected>
+              <GameScreen />
             </Protected>
           }
         />
