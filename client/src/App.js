@@ -6,6 +6,7 @@ import Login from "./screens/Loginscreen";
 import Protected from "./utils/Protected";
 import GameScreen from "./screens/GameScreen/Index";
 import Select from "./screens/SelectGameScreen/Select";
+import SelectOnline from "./screens/SelectGameScreen/SelectOnline";
 
 function App() {
   return (
@@ -31,11 +32,15 @@ function App() {
           }
         />
 
-<Route
+        <Route exact path="/select" element={<Select />} />
+
+        <Route
           exact
-          path="/select"
+          path="/select/online"
           element={
-              <Select />
+            <Protected>
+              <SelectOnline />
+            </Protected>
           }
         />
 
@@ -48,6 +53,9 @@ function App() {
             </Protected>
           }
         />
+
+
+
       </Routes>
     </BrowserRouter>
   );
