@@ -5,6 +5,7 @@ import Register from "./screens/RegisterScreen";
 import Login from "./screens/Loginscreen";
 import Protected from "./utils/Protected";
 import GameScreen from "./screens/GameScreen/Index";
+import Select from "./screens/SelectGameScreen/Select";
 
 function App() {
   return (
@@ -27,6 +28,14 @@ function App() {
             <Protected>
               <Register />
             </Protected>
+          }
+        />
+
+<Route
+          exact
+          path="/select"
+          element={
+              <Select />
           }
         />
 
