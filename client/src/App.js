@@ -41,7 +41,7 @@ function App() {
 
         <Route
           exact
-          path="/game/:id"
+          path="/play/:id"
           element={
             <Protected>
               <GameScreen />

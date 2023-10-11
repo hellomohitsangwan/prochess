@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import FormContainer from "../../components/FormContainer";
 import { Form, Button, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function Select() {
+  const navigate = useNavigate();
   const [gameType, setGameType] = useState("");
   const [isdisabled, setIsDisabled] = useState(true);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if(gameType) {
+      gameType === "offline" ? navigate("/play/offline") : navigate("/select/online");
+    }
   };
 
   useEffect(() => {
