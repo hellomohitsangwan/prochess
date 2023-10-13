@@ -53,9 +53,6 @@ function App() {
             </Protected>
           }
         />
-
-
-
       </Routes>
     </BrowserRouter>
   );

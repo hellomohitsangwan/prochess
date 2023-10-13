@@ -16,12 +16,12 @@
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
   --mainBorderRadius: 0.25rem;
-  --smallWidth: 85vw;
+  --smallWidth: 88vw;
   --maxWidth: 40rem;
   --fullWidth: 1170px;
 }
 .headerr {
-  color: rgb(222, 146, 6) !important;
+  color: rgb(231, 153, 7) !important;
   font-weight :bolder;
 }
 
@@ -61,6 +61,7 @@ a:hover{
   align-items: center;
 }
 .nav-center {
+  padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;

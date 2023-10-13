@@ -1,0 +1,25 @@
+.left_header_headingg {
+    line-height: 124%;
+    font-weight: 800;
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.options {
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.cont {
+    margin-top: 20px;
+}
+
+.b3 {
+    margin-right: 32px;
+    background-color: rgb(231, 153, 7) !important;
+    border-color: rgb(231, 153, 7) !important;
+    padding: 12px !important;
+    border-radius: 10% !important;
+    font-size: 24px !important;
+    margin-top: 16px;
+}
