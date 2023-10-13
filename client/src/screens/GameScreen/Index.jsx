@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { initGame, gameSubject, resetGame } from "../../utils/ChessGame";
 import Board from "../../components/Board/Index";
+import gameplay from "../../assets/gameplay.png";
 
 function GameScreen() {
   const [board, setBoard] = useState([]);
@@ -18,21 +19,27 @@ function GameScreen() {
     });
     return () => subscribe.unsubscribe();
   }, []);
-  
+
   return (
-    <div className="container">
-      {isGameOver && (
-        <h2 className="vertical-text">
-          GAME OVER
-          <button onClick={resetGame}>
-            <span className="vertical-text"> NEW GAME</span>
-          </button>
-        </h2>
-      )}
-      <div className="board-container">
-        <Board board={board} turn={turn} />
+    <div className="main_container">
+      <div className="leftt">
+        <img src={gameplay} className="limg" alt="gp" />
       </div>
-      {result && <p className="vertical-text">{result}</p>}
+      <div className="containerr">
+        {isGameOver && (
+          <h2 className="vertical-text">
+            GAME OVER
+            <button onClick={resetGame}>
+              <span className="vertical-text"> NEW GAME</span>
+            </button>
+          </h2>
+        )}
+
+        <div className="board-container">
+          <Board board={board} turn={turn} />
+        </div>
+        {result && <p className="vertical-text">{result}</p>}
+      </div>
     </div>
   );
 }

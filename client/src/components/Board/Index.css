@@ -10,6 +10,30 @@
     justify-content: center;
     /* background-color: rgb(34, 34, 34); */
 }
+.main_container {
+    /* width: 60vw; */
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between !important;
+    align-items: center;
+    justify-content: center;
+}
+.leftt {
+    width: 50vw;
+    /* marg/in-left: 4rem; */
+}
+.limg {
+    width: 20rem;
+    margin-left: 4rem;
+}
+.containerr {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-top: 8% !important;
+    width: 90vw;
+    margin-right: 4rem;
+}
 
 .board-container {
     width: 600px;

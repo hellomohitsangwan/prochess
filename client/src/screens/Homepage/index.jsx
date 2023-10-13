@@ -2,8 +2,7 @@ import React from "react";
 import Header from "../../components/Header";
 import "./index.css";
 import chess from "../../assets/chess.png";
-import {Button} from "react-bootstrap"
-
+import { Button } from "react-bootstrap";
 
 const Homepage = () => {
   return (
