@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../actions/userActions";
 import "./components.css";
 import dropdown from "../assets/dropdown.svg";
+import header from "../assets/header.png"
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,13 @@ const Header = () => {
     <>
       <nav className="navbar">
         <div className="nav-center">
+        <div className="nav-rightt">
           <Link to="/">
-            <h3>Pro Chess</h3>
+          <img alt="logo" className = "logo" src={header}></img> </Link>
+          <Link to="/">
+          <h3 className="headerr">Pro Chess</h3>
           </Link>
+          </div>
           <ul className="nav-links">
             {userInfo ? (
               <div className="info">

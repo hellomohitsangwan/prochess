@@ -1219,14 +1219,15 @@ footer p {
 }
 
 .cont {
-  border: none;
-  background-color: #6d8b56;
+  color: white;
+  border-radius: 10% !important;
+  background-color: rgb(222, 146, 6) !important;
 }
 .cont:disabled {
   border: none;
-  background-color: #6d8b56;
+  background-color: rgb(222, 146, 6) !important;
 }
 .cont:hover {
-  border: none;
-  background-color: #6d8b56;
+  border: 10px;
+  background-color: rgb(222, 146, 6) !important;
 }
