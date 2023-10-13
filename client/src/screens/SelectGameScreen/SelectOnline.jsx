@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import dropdown from "../../assets/dropdown.svg";
+import io from "socket.io-client"
+
+
 
 function SelectOnline() {
   const navigate = useNavigate();
@@ -9,7 +12,7 @@ function SelectOnline() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    keyword && navigate(`/play/${keyword}`)
+    keyword && navigate(`/play/${keyword}`);
   };
 
   useEffect(() => {

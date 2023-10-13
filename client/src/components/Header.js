@@ -30,7 +30,7 @@ const Header = () => {
                 </button>
                 <ul>
                   <li>
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/select">Play</Link>
                   </li>
                   <li>
                     <p onClick={logoutHandler} className="logout">
