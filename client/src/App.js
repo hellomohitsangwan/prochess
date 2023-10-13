@@ -17,18 +17,18 @@ function App() {
           exact
           path="/login"
           element={
-            <Protected>
+            // <Protected>
               <Login />
-            </Protected>
+            // </Protected>
           }
         />
         <Route
           exact
           path="/register"
           element={
-            <Protected>
+            // <Protected>
               <Register />
-            </Protected>
+            
           }
         />
 
@@ -46,7 +46,7 @@ function App() {
 
         <Route
           exact
-          path="/play/:id"
+          path="/play/:id/:turn"
           element={
             <Protected>
               <GameScreen />

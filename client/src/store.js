@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import io from "socket.io-client";
 import {
   userLoginReducer,
   userRegisterReducer,
@@ -19,8 +20,10 @@ const userInfoFromStorage = localStorage.getItem("userInfo")
 const initialState = {
   userLogin: {
     userInfo: userInfoFromStorage, 
-    loading: false
+    loading: false,
+    socket: io.connect(`http://localhost:8000`)
   },
+  
 };
 
 const middleware = [thunk];

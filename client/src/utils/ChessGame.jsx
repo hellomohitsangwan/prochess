@@ -2,15 +2,32 @@ import * as Chess from 'chess.js'
 import { BehaviorSubject } from 'rxjs'
 
 const chess = new Chess()
+let socketID;
+let gameId;
+let turnPlayed
+export let gameSubject 
 
-export const gameSubject = new BehaviorSubject()
-
-export function initGame() {
-    const savedGame = localStorage.getItem('savedChessGame')
-    if (savedGame) {
-        chess.load(savedGame)
+export function initGame(id, socket, turn) {
+    socketID = socket;
+    gameId = id
+    turnPlayed = turn
+    if(id!=='offline'){
+        gameSubject = new BehaviorSubject();
+        chess.reset();
+        const savedGame = localStorage.getItem('savedOnlineChessGame')
+        if (savedGame) {
+            chess.load(savedGame)
+        }
+        updateGameNew()
+    }else{
+        gameSubject = new BehaviorSubject();
+        const savedGame = localStorage.getItem('savedChessGame')
+        if (savedGame) {
+            chess.load(savedGame)
+        }
+        updateGame()
     }
-    updateGame()
+    
 }
 
 export function resetGame() {
@@ -31,6 +48,19 @@ export function handleMove(from, to) {
         move(from, to)
     }
 }
+export function handleMoveNew(from, to) {
+    const promotions = chess.moves({ verbose: true }).filter(m => m.promotion)
+    console.table(promotions)
+    if (promotions.some(p => `${p.from}:${p.to}` === `${from}:${to}`)) {
+        const pendingPromotion = { from, to, color: promotions[0].color }
+        updateGameNew(pendingPromotion)
+    }
+    const { pendingPromotion } = gameSubject.getValue()
+
+    if (!pendingPromotion) {
+        moveNew(from, to)
+    }
+}
 
 
 export function move(from, to, promotion) {
@@ -44,7 +74,40 @@ export function move(from, to, promotion) {
         updateGame()
     }
 }
+export function moveNew(from, to, promotion) {
+    let tempMove = { from, to }
+    if (promotion) {
+        tempMove.promotion = promotion
+    }
+    const legalMove = chess.move(tempMove)
 
+    if (legalMove) {
+        updateGameNew()
+    }
+}
+export function updateGameState(state) {
+    chess.load(state);
+    updateGame();
+}
+async function updateGameNew(pendingPromotion) {
+    const isGameOver = chess.game_over()
+
+    const newGame = {
+        board: chess.board(),
+        pendingPromotion,
+        isGameOver,
+        position: turnPlayed,
+        result: isGameOver ? getGameResult() : null
+    }
+    let obj = {
+        gameId: gameId,
+        update: chess.fen(),
+        turn:(chess.turn()),
+      };
+    gameSubject?.next(newGame)
+    await socketID?.emit("send_update", {obj});
+    // localStorage.setItem('savedOnlineChessGame', chess.fen())
+}
 function updateGame(pendingPromotion) {
     const isGameOver = chess.game_over()
 
@@ -52,7 +115,7 @@ function updateGame(pendingPromotion) {
         board: chess.board(),
         pendingPromotion,
         isGameOver,
-        turn: chess.turn(),
+        position: chess.turn(),
         result: isGameOver ? getGameResult() : null
     }
 

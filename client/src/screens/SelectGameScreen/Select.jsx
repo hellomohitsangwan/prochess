@@ -15,7 +15,7 @@ function Select() {
     e.preventDefault();
     if (gameType) {
       gameType === "offline"
-        ? navigate("/play/offline")
+        ? navigate("/play/offline/off")
         : navigate("/select/online");
     }
   };
