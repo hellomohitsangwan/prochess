@@ -23,3 +23,28 @@
     font-size: 24px !important;
     margin-top: 16px;
 }
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.maincont {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.b4 {
+    margin-left: 8px;
+    background-color: rgb(231, 153, 7) !important;
+    border-color: rgb(231, 153, 7) !important;
+    padding: 6px !important;
+    border-radius: 10% !important;
+    font-size: 20px !important;
+    color: white;
+    /* margin-top: 16px; */
+}
