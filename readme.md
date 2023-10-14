@@ -2,18 +2,6 @@
 
 Welcome to ProChess, a dynamic chess platform that allows users to engage in thrilling chess matches both locally and online. With real-time gameplay, user-friendly interfaces, and seamless registration through our website, ProChess is the ultimate destination for chess enthusiasts.
 
-# Screenshots:
-![Alt text](image-4.png)
-
-![Alt text](image-5.png)
-
-![Alt text](image-9.png)
-
-![Alt text](image-6.png)
-
-![Alt text](image-7.png)
-
-![Alt text](image-8.png)
 
 
 ## Features
@@ -23,6 +11,19 @@ Welcome to ProChess, a dynamic chess platform that allows users to engage in thr
 - **User Registration:** Create an account on our website using JWT user authentication for a personalized chess experience.
 
 - **Offline Game History:** All offline game history is stored locally, allowing you to review and analyze your past matches.
+
+# Screenshots:
+![Alt text](./images/image-4.png)
+
+![Alt text](./images/image-5.png)
+
+![Alt text](./images/image-9.png)
+
+![Alt text](./images/image-6.png)
+
+![Alt text](./images/image-7.png)
+
+![Alt text](./images/image-8.png)
 
 ## Tech Stack
 
