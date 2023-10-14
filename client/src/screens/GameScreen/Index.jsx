@@ -15,6 +15,11 @@ import { Button } from "react-bootstrap";
 import Header from "../../components/Header";
 
 function GameScreen() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
   const userLogin = useSelector((state) => state.userLogin);
   const { socket } = userLogin;
   const { id, turn } = useParams();
@@ -22,6 +27,16 @@ function GameScreen() {
   const [isGameOver, setIsGameOver] = useState();
   const [result, setResult] = useState();
   const [position, setPosition] = useState();
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  console.log(windowWidth);
 
   useEffect(() => {
     initGame(id, socket, turn);
@@ -35,7 +50,7 @@ function GameScreen() {
   }, []);
 
   useEffect(() => {
-    socket.on("receive_update", (data) => {
+    socket?.on("receive_update", (data) => {
       console.log(data);
       updateGameState(data.obj.update);
     });
@@ -62,9 +77,12 @@ function GameScreen() {
     <>
       <Header />
       <div className="main_container">
-        <div className="leftt">
-          <img src={gameplay} className="limg" alt="gp" />
-        </div>
+        {windowWidth >= 1200 && (
+          <div className="leftt">
+            <img src={gameplay} className="limg" alt="gp" />
+          </div>
+        )}
+
         <div className="containerr mt-0">
           {isGameOver && (
             <h2 className="vertical-text">

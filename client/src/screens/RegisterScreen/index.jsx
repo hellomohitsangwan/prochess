@@ -7,6 +7,7 @@ import FormContainer from "../../components/FormContainer";
 import { register } from "../../actions/userActions";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
+import Header from "../../components/Header";
 // import { useHistory } from "react-router-dom";
 
 const Register = () => {
@@ -35,6 +36,8 @@ const Register = () => {
         //dispatch login
     };
     return (
+        <>
+        <Header />
         <div className="container">
             <div>
             <h1>Sign Up</h1>
@@ -94,6 +97,7 @@ const Register = () => {
             </Row>
             </div>
         </div>
+        </>
     );
 };
 

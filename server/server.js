@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
 
   socket.on("send_update", (data)=>{
     if (data.obj.update !== "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") {
-      socket.to(data.obj.gameId).emit("receive_update", data);
+      socket.to(data.obj.gameId)?.emit("receive_update", data);
     }
     
   })
