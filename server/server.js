@@ -23,12 +23,24 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log("user connected: ", socket.id);
 
+  socket.on("join_room", (data)=>{
+    socket.join(data)
+    console.log(`User with ID: ${socket.id} joined room: ${data}`);
+  })
+
+  socket.on("send_update", (data)=>{
+    if (data.obj.update !== "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") {
+      socket.to(data.obj.gameId).emit("receive_update", data);
+    }
+    
+  })
+
   socket.on("disconnect", () => {
     console.log(`User disconnected: ${socket.id}`);
   });
 });
 
 const PORT = 8000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`server started in production mode on port ${PORT}`);
 });

@@ -35,7 +35,8 @@ const Register = () => {
         //dispatch login
     };
     return (
-        <FormContainer>
+        <div className="container">
+            <div>
             <h1>Sign Up</h1>
             {message && <Message variant="danger" children={message} />}
             {error && <Message variant="danger" children={error} />}
@@ -91,7 +92,8 @@ const Register = () => {
                     </Link>
                 </Col>
             </Row>
-        </FormContainer>
+            </div>
+        </div>
     );
 };
 

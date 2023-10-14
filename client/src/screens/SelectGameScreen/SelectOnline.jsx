@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import ps from "../../assets/ps.png";
 import "./Index.css";
 import Header from "../../components/Header";
-import { resetGameNew } from "../../utils/ChessGame";
+// import { resetGameNew } from "../../utils/ChessGame";
 
 function SelectOnline() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -26,13 +26,13 @@ function SelectOnline() {
     navigate(`/play/${unique_id}/${type}`);
     socket.emit("join_room", unique_id);
   };
-  const joinRoomPlay = (id) => {
-    let arr = id.split("/");
-    // resetGameNew();
-    // console.log(arr);
-    navigate(`/play/${arr[0]}/${arr[1]}`);
-    socket.emit("join_room", arr[0]);
-  };
+  // const joinRoomPlay = (id) => {
+  //   let arr = id.split("/");
+  //   // resetGameNew();
+  //   // console.log(arr);
+  //   navigate(`/play/${arr[0]}/${arr[1]}`);
+  //   socket.emit("join_room", arr[0]);
+  // };
 
   useEffect(() => {
     if (keyword === "") {
