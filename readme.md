@@ -12,18 +12,20 @@ Welcome to ProChess, a dynamic chess platform that allows users to engage in thr
 
 - **Offline Game History:** All offline game history is stored locally, allowing you to review and analyze your past matches.
 
+### Live link: [Prochess](https://prochesss.netlify.app/)
+
 # Screenshots:
-![Alt text](./images/image-4.png)
+![Alt text]( ./client/images/image-4.png)
 
-![Alt text](./images/image-5.png)
+![Alt text](./client/images/image-5.png)
 
-![Alt text](./images/image-9.png)
+![Alt text](./client/images/image-9.png)
 
-![Alt text](./images/image-6.png)
+![Alt text](./client/images/image-6.png)
 
-![Alt text](./images/image-7.png)
+![Alt text](./client/images/image-7.png)
 
-![Alt text](./images/image-8.png)
+![Alt text](./client/images/image-8.png)
 
 ## Tech Stack
 
@@ -37,9 +39,6 @@ Welcome to ProChess, a dynamic chess platform that allows users to engage in thr
 
 - **Design:** Figma was utilized for the design process, ensuring a visually appealing and user-friendly interface.
 
-
-### Live link: [Prochess](https://prochesss.netlify.app/)
-### Loom Video Link: [Loom](https://www.loom.com/share/cf482b25b4fb4452a6cb0a15ac7e5dd3?sid=2d53ee62-181a-483b-8d94-dc6ca980d6c6)
 
 ## Getting Started
 
