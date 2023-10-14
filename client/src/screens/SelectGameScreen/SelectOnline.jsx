@@ -88,14 +88,14 @@ function SelectOnline() {
               onChange={(e) => setKeyword(e.target.value)}
             />
             <div className="input-group-append">
-              <button
-                id="search_btn"
-                className="btn"
-                onClick={()=>{joinRoomPlay(keyword)}}
-                disabled={isdisabled}
-              >
-                Play
-              </button>
+            <button
+                  id="search_btn"
+                  className="b4"
+                  onClick={submitHandler}
+                  disabled={isdisabled}
+                >
+                  Play
+                </button>
             </div>
           </div>
         </form>

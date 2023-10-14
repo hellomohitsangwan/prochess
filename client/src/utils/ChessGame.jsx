@@ -34,6 +34,10 @@ export function resetGame() {
     chess.reset()
     updateGame()
 }
+export function resetGameNew() {
+    chess.reset()
+    updateGameNew()
+}
 
 export function handleMove(from, to) {
     const promotions = chess.moves({ verbose: true }).filter(m => m.promotion)

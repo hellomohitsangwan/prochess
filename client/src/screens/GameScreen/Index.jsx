@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { initGame, gameSubject, resetGame, updateGameState } from "../../utils/ChessGame";
+import {
+  initGame,
+  gameSubject,
+  resetGame,
+  updateGameState,
+} from "../../utils/ChessGame";
 import Board from "../../components/Board/Index";
 import gameplay from "../../assets/gameplay.png";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import copy from "clipboard-copy";
-
+import { Button } from "react-bootstrap";
 
 function GameScreen() {
-
   const userLogin = useSelector((state) => state.userLogin);
   const { socket } = userLogin;
   const { id, turn } = useParams();
@@ -36,11 +40,11 @@ function GameScreen() {
   }, [socket]);
 
   const handleCopyClick = () => {
-    let data1
-    if (turn === 'w'){
-      data1 = id+"/b"
-    }else{
-      data1 = id+"/w"
+    let data1;
+    if (turn === "w") {
+      data1 = id + "/b";
+    } else {
+      data1 = id + "/w";
     }
 
     copy(data1)
@@ -66,9 +70,20 @@ function GameScreen() {
             </button>
           </h2>
         )}
-        <div><button onClick={()=>{handleCopyClick()}}>copy id</button></div>
 
         <div className="board-container">
+          <div>
+            {id !== "offline" && (
+              <Button
+                className="b5"
+                onClick={() => {
+                  handleCopyClick();
+                }}
+              >
+                copy id
+              </Button>
+            )}
+          </div>
           <Board board={board} position={position} />
         </div>
         {result && <p className="vertical-text">{result}</p>}

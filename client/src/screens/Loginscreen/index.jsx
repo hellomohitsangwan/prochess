@@ -1,5 +1,5 @@
-import React, {useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/userActions";
@@ -8,22 +8,28 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userInfo]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-
-    //dispatch login
     dispatch(login(email, password));
   };
 
-
   return (
-    <FormContainer>
+    // <FormContainer>
+    <div className="container">
+      <div>
       <h1>Sign In</h1>
       {error && <Message variant="danger" children={error} />}
       {loading && <Loader />}
@@ -56,13 +62,14 @@ const Login = () => {
         <Col>
           New Customer?
           <Link to={"/register"}>
-            <span className="login">
-            Register
-            </span>
+            <span className="login">Register</span>
           </Link>
         </Col>
       </Row>
-    </FormContainer>
+      </div>
+      </div>
+
+    // </FormContainer>
   );
 };
 

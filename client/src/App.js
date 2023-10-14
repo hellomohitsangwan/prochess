@@ -8,29 +8,14 @@ import GameScreen from "./screens/GameScreen/Index";
 import Select from "./screens/SelectGameScreen/Select";
 import SelectOnline from "./screens/SelectGameScreen/SelectOnline";
 
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} exact />
-        <Route
-          exact
-          path="/login"
-          element={
-            // <Protected>
-              <Login />
-            // </Protected>
-          }
-        />
-        <Route
-          exact
-          path="/register"
-          element={
-            // <Protected>
-              <Register />
-            
-          }
-        />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
 
         <Route exact path="/select" element={<Select />} />
 
