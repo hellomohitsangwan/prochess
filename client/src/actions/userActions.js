@@ -82,6 +82,7 @@ export const register = (name, email, password,isAdmin) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: "USER_REGISTER_INFO_REMOVE" });
+  localStorage.setItem('userInfo', null)
   dispatch({ type: USER_DETAILS_RESET });
 };
 

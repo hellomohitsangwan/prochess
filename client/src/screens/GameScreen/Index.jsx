@@ -4,6 +4,7 @@ import {
   gameSubject,
   resetGame,
   updateGameState,
+  resetGameNew,
 } from "../../utils/ChessGame";
 import Board from "../../components/Board/Index";
 import gameplay from "../../assets/gameplay.png";
@@ -11,6 +12,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import copy from "clipboard-copy";
 import { Button } from "react-bootstrap";
+import Header from "../../components/Header";
 
 function GameScreen() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -57,38 +59,48 @@ function GameScreen() {
   };
 
   return (
-    <div className="main_container">
-      <div className="leftt">
-        <img src={gameplay} className="limg" alt="gp" />
-      </div>
-      <div className="containerr">
-        {isGameOver && (
-          <h2 className="vertical-text">
-            GAME OVER
-            <button onClick={resetGame}>
-              <span className="vertical-text"> NEW GAME</span>
-            </button>
-          </h2>
-        )}
-
-        <div className="board-container">
-          <div>
-            {id !== "offline" && (
-              <Button
-                className="b5"
-                onClick={() => {
-                  handleCopyClick();
-                }}
-              >
-                copy id
-              </Button>
-            )}
-          </div>
-          <Board board={board} position={position} />
+    <>
+      <Header />
+      <div className="main_container">
+        <div className="leftt">
+          <img src={gameplay} className="limg" alt="gp" />
         </div>
-        {result && <p className="vertical-text">{result}</p>}
+        <div className="containerr mt-0">
+          {isGameOver && (
+            <h2 className="vertical-text">
+              GAME OVER
+              <button onClick={resetGame}>
+                <span className="vertical-text"> NEW GAME</span>
+              </button>
+            </h2>
+          )}
+
+          <div className="board-container">
+            <div className="br">
+              {id !== "offline" && (
+                <Button
+                  className="b5"
+                  onClick={() => {
+                    handleCopyClick();
+                  }}
+                >
+                  copy id
+                </Button>
+              )}
+              <Button
+                onClick={id !== "offline" ? resetGameNew : resetGame}
+                className="b6"
+              >
+                {" "}
+                Reset Game
+              </Button>
+            </div>
+            <Board board={board} position={position} />
+          </div>
+          {result && <p className="vertical-text">{result}</p>}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

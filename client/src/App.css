@@ -1232,16 +1232,32 @@ footer p {
   background-color: rgb(222, 146, 6) !important;
 }
 
+.br {
+  margin-top: 0px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
 
 .b5{
-  margin-bottom: 16px;
-  margin-left: 480px;
-  /* display: flex; */
-  /* justify-content: center !important; */
+  /* margin-bottom: 16px;
+  margin-left: 480px; */
   background-color:white !important;
   border-color: rgb(231, 153, 7) !important;
   padding: 12px !important;
   border-radius: 10% !important;
   font-size: 24px !important;
   color: rgb(231, 153, 7) !important
+}
+
+.b6{
+  /* margin-bottom: 16px;
+  margin-left: 480px; */
+  background-color:rgb(231, 153, 7) !important;
+  border-color: rgb(231, 153, 7) !important;
+  padding: 12px !important;
+  border-radius: 10% !important;
+  font-size: 24px !important;
+  color: white !important
 }
