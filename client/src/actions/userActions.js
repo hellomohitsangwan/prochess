@@ -22,7 +22,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "/api/users/login",
+      "https://prochess-4ljx.onrender.com/api/users/login",
       { email, password },
       config
     );
@@ -52,7 +52,7 @@ export const register = (name, email, password,isAdmin) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "/api/users",
+      "https://prochess-4ljx.onrender.com/api/users",
       { name, email, password},
       config
     );
@@ -99,7 +99,7 @@ export const getUserDetails = (endpoint) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/users/${endpoint}`, config);
+    const { data } = await axios.get(`https://prochess-4ljx.onrender.com/api/users/${endpoint}`, config);
 
     dispatch({
       type: USER_DETAILS_SUCCESS,

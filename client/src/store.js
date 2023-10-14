@@ -21,7 +21,7 @@ const initialState = {
   userLogin: {
     userInfo: userInfoFromStorage, 
     loading: false,
-    socket: io.connect(`http://localhost:8000`)
+    socket: io.connect(`https://prochess-4ljx.onrender.com`)
   },
   
 };
