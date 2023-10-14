@@ -9,9 +9,9 @@ const app = express();
 app.use(express.json());
 connectDB();
 const server = http.createServer(app);
-
-app.use("/api/users", userRoutes);
 app.use(corsMiddleware);
+app.use("/api/users", userRoutes);
+
 
 const io = new Server(server, {
   cors: {
