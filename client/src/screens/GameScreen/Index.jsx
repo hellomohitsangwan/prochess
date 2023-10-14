@@ -105,13 +105,15 @@ function GameScreen() {
                   copy id
                 </Button>
               )}
-              <Button
-                onClick={id !== "offline" ? resetGameNew : resetGame}
-                className="b6"
-              >
-                {" "}
-                Reset Game
-              </Button>
+              {id === "offline" && (
+                <Button
+                  onClick={id !== "offline" ? resetGameNew : resetGame}
+                  className="b6"
+                >
+                  {" "}
+                  Reset Game
+                </Button>
+              )}
             </div>
             <Board board={board} position={position} />
           </div>
