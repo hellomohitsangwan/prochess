@@ -37,6 +37,10 @@ Welcome to ProChess, a dynamic chess platform that allows users to engage in thr
 
 - **Design:** Figma was utilized for the design process, ensuring a visually appealing and user-friendly interface.
 
+
+### Live link: [Prochess](https://prochesss.netlify.app/)
+### Loom Video Link: [Loom](https://www.loom.com/share/cf482b25b4fb4452a6cb0a15ac7e5dd3?sid=2d53ee62-181a-483b-8d94-dc6ca980d6c6)
+
 ## Getting Started
 
 1. Clone the repository:
@@ -62,4 +66,3 @@ Welcome to ProChess, a dynamic chess platform that allows users to engage in thr
     npm start
 
 4. Visit http://localhost:4848 to access the ProChess application.
-5. Live link: 
